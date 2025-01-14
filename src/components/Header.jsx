@@ -1,11 +1,18 @@
 import stlogo from '../assets/img/sharetube-logo.png'
 import menulogo from '../assets/img/menu.png'
 import userlogo from '../assets/img/userIcon.png'
+import { useDispatch } from 'react-redux'
+import { handleSidebar } from '../Slices/sidebarSlice'
+
 const Header=()=>{
+    const dispatch = useDispatch();
+    const handleMenuClick=()=>{
+        dispatch(handleSidebar())
+    }
     return(
         <div className="grid grid-flow-col p-5 m-2 shadow-lg rounded-lg">
             <div className="flex col-span-1 items-center space-x-2">
-                <img className='h-8' src={menulogo} alt="menu"/>
+                <img onClick={handleMenuClick} className='h-8 hover:cursor-pointer hover:rounded-full hover:bg-gray-400' src={menulogo} alt="menu"/>
                 <img className='h-8' src={stlogo} alt="yt-logo"/>
             </div>
             <div className=' flex items-center justify-center  col-span-10 '>
