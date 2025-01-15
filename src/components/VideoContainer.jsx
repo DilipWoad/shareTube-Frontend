@@ -1,9 +1,23 @@
+import { useEffect,useState } from "react";
 import VideoCard from "./VideoCard";
+import { YOUTUBE_VIDEOS_LIST_API } from "../utils/constant";
 
 const VideoContainer=()=>{
+    const[videos,setVideos] = useState();
+    const youtubeVideoData =async()=>{
+       const response =  await fetch(YOUTUBE_VIDEOS_LIST_API);
+       const data = await response.json();
+       console.log(data.items);
+      setVideos(data.items);
+    }
+    useEffect(()=>{
+        youtubeVideoData();
+
+    },[])
     return(
-        <div>
-            <VideoCard/>
+        videos &&
+        <div className="flex flex-wrap gap-7">
+            {videos.map((video)=><VideoCard key={video.id} info={video}/>)}
         </div>
     )
 }

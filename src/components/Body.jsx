@@ -3,7 +3,7 @@ import Sidebar from "./Sidebar";
 
 const Body=()=>{
     return(
-        <div className="flex">
+        <div className="flex flex-row">
             <Sidebar/>
             <MainContainer/>
         </div>

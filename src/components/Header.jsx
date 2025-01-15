@@ -2,7 +2,7 @@ import stlogo from '../assets/img/sharetube-logo.png'
 import menulogo from '../assets/img/menu.png'
 import userlogo from '../assets/img/userIcon.png'
 import { useDispatch } from 'react-redux'
-import { handleSidebar } from '../Slices/sidebarSlice'
+import { handleSidebar } from '../utils/Slices/sidebarSlice'
 
 const Header=()=>{
     const dispatch = useDispatch();
