@@ -13,7 +13,9 @@ const Header=()=>{
         <div className="grid grid-flow-col p-5 m-2 shadow-lg rounded-lg">
             <div className="flex col-span-1 items-center space-x-2">
                 <img onClick={handleMenuClick} className='h-8 hover:cursor-pointer hover:rounded-full hover:bg-gray-400' src={menulogo} alt="menu"/>
+                <a href='/'>
                 <img className='h-8' src={stlogo} alt="yt-logo"/>
+                </a>
             </div>
             <div className=' flex items-center justify-center  col-span-10 '>
                 <input className='w-1/2 border border-gray-500 p-2 rounded-l-full' type="input" placeholder="Search"></input>
