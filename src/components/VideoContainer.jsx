@@ -1,11 +1,11 @@
 import { useEffect,useState } from "react";
 import VideoCard from "./VideoCard";
-import { YOUTUBE_VIDEOS_LIST_API } from "../utils/constant";
+import { YOUTUBE_VIDEOS_URL } from "../utils/constant";
 
 const VideoContainer=()=>{
     const[videos,setVideos] = useState();
     const youtubeVideoData =async()=>{
-       const response =  await fetch(YOUTUBE_VIDEOS_LIST_API);
+       const response =  await fetch(YOUTUBE_VIDEOS_URL);
        const data = await response.json();
        console.log(data.items);
       setVideos(data.items);
