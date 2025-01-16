@@ -1,4 +1,5 @@
 import { useSelector } from "react-redux"
+import { Link } from "react-router-dom"
 
 const Sidebar=()=>{
     const hideSidebar = useSelector((store)=>store?.sidebar?.sidebarStatus)
@@ -6,7 +7,7 @@ const Sidebar=()=>{
         hideSidebar &&
         <div className="pl-2 rounded-md shadow-lg w-48 ">
             <ul className="py-2">
-                <li> Home </li>
+                <li><Link to={'/'}>Home</Link></li>
                 <li> Shorts </li>
                 <li> Subscriptions</li>
             </ul>

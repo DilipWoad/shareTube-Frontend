@@ -8,9 +8,12 @@ const sidebarSlice=createSlice({
     reducers:{
         handleSidebar:(state,action)=>{
             state.sidebarStatus = !state?.sidebarStatus
+        },
+        menuClose:(state,action)=>{
+            state.sidebarStatus = false
         }
     }
 })
 
 export default sidebarSlice.reducer;
-export const{handleSidebar} = sidebarSlice.actions;
+export const{handleSidebar,menuClose} = sidebarSlice.actions;

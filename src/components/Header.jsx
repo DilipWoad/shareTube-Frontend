@@ -3,6 +3,7 @@ import menulogo from '../assets/img/menu.png'
 import userlogo from '../assets/img/userIcon.png'
 import { useDispatch } from 'react-redux'
 import { handleSidebar } from '../utils/Slices/sidebarSlice'
+import { Link } from 'react-router-dom'
 
 const Header=()=>{
     const dispatch = useDispatch();
@@ -14,7 +15,7 @@ const Header=()=>{
             <div className="flex col-span-1 items-center space-x-2">
                 <img onClick={handleMenuClick} className='h-8 hover:cursor-pointer hover:rounded-full hover:bg-gray-400' src={menulogo} alt="menu"/>
                 <a href='/'>
-                <img className='h-8' src={stlogo} alt="yt-logo"/>
+                    <img className='h-8' src={stlogo} alt="yt-logo"/>
                 </a>
             </div>
             <div className=' flex items-center justify-center  col-span-10 '>
