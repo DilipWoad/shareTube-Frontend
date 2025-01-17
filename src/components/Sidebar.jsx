@@ -5,7 +5,7 @@ const Sidebar=()=>{
     const hideSidebar = useSelector((store)=>store?.sidebar?.sidebarStatus)
     return(
         hideSidebar &&
-        <div className="pl-2 rounded-md shadow-lg w-48 ">
+        <div className="pl-2 rounded-md shadow-2xl min-w-48 ml-2 ">
             <ul className="py-2">
                 <li><Link to={'/'}>Home</Link></li>
                 <li> Shorts </li>

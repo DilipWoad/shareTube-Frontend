@@ -18,7 +18,7 @@ const VideoContainer=()=>{
     return(
         videos &&
         
-        <div className="flex flex-wrap gap-7">
+        <div className="flex flex-wrap justify-center gap-7 rounded-lg mx-5 shadow-2xl">
             {videos.map((video)=><Link key={video.id} to={{pathname:'/watch',search:`?v=${video.id}`}}><VideoCard info={video}/></Link>)}  
         </div>
     )
