@@ -1,28 +1,29 @@
 import stlogo from "../assets/img/sharetube-logo.png";
 import menulogo from "../assets/img/menu.png";
 import userlogo from "../assets/img/userIcon.png";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { handleSidebar } from "../utils/Slices/sidebarSlice";
 import { useEffect, useRef, useState } from "react";
 import { YOUTUBE_SEARCH_URL } from "../utils/constant";
+import { addSearchResults, clearSearchCaches } from "../utils/Slices/searchSlice";
 
 
 const Header = () => {
+  const dispatch = useDispatch();
+  const searchSelector = useSelector((store)=>store?.search);
   const [searchText, setSearchText] = useState("");
   const [searchResults,setSearchResults] = useState(null);
   const [showSuggestion,setShowSuggestion] = useState(false);
 
-  const dispatch = useDispatch();
-
   const youtubeSearchRef = useRef("");
-
 
   const handleMenuClick = () => {
     dispatch(handleSidebar());
   };
 
   //use it for searching video Through Queries
-  const handleSearch = async () => {
+  const handleSearch = () => {
+    dispatch(clearSearchCaches());
     const searchTextQuries = youtubeSearchRef?.current.value;
     console.log(searchTextQuries);
   };
@@ -31,13 +32,25 @@ const Header = () => {
     const response = await fetch(YOUTUBE_SEARCH_URL+searchText);
     const data = await response.json();
     setSearchResults(data[1]);
-    console.log(data[0]);
+    //also add it to the store
+    //{"dil"}
+    dispatch(addSearchResults({
+      [searchText]:data[1]
+    }));
   };
 
   useEffect(() => {
     //make this api call after 200 ms
     //if difference btw 2 keystroke is less then 200ms then dismiss it
-    const timer = setTimeout(()=>youtubeSearch(),200);
+    const timer = setTimeout(()=>{
+      //if present in searchSelector then display the present values in store
+      if(searchSelector[searchText]){
+        //if present setSearchSuggestion from the store and not from API
+        setSearchResults(searchSelector[searchText]);
+      }else{
+        youtubeSearch();
+      } 
+    },200);
 
     //so this will be called while unmounting the component
     //when a new letter is pressed then useEffect unmount the 
@@ -49,9 +62,8 @@ const Header = () => {
     })
   }, [searchText]);
 
-  console.log(searchText);
   return (
-    <div className="bg-white fixed w-full grid grid-flow-col p-5 mx-2 shadow-lg rounded-lg">
+    <div className="bg-white fixed w-full grid grid-flow-col p-5 mx-2 shadow-lg rounded-lg  items-center">
       <div className="flex col-span-1 items-center space-x-2">
         <img
           onClick={handleMenuClick}
@@ -63,8 +75,8 @@ const Header = () => {
           <img className="h-8" src={stlogo} alt="yt-logo" />
         </a>
       </div>
-      <div className=" col-span-10 px-10 ">
-        <div className="">
+      <div className=" col-span-10 px-10 flex  justify-center items-center ">
+        <div className=" ">
             <input
             className=" border border-gray-500 py-2 px-4 rounded-l-full w-[450px]"
             type="input"
@@ -83,10 +95,10 @@ const Header = () => {
             </button>
         </div>
         {
-            showSuggestion && <div className="bg-white fixed w-4/12 rounded-lg mt-[1px] shadow-2xl">
+            showSuggestion && searchText && <div className="bg-white fixed w-4/12 rounded-lg mt-[1px] shadow-2xl">
             <ul className="p-6 ">
                 {searchResults.map((result)=>(
-                    <li className="my-2 hover:bg-gray-300 p-1"><span className="mx-2">⌕</span> {result}</li>
+                    <li key={result} className="my-2 hover:bg-gray-300 p-1"><span className="mx-2">⌕</span> {result}</li>
                 ))}
             </ul>
             </div>
