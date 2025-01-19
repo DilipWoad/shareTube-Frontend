@@ -2,7 +2,7 @@ import { useDispatch } from "react-redux";
 import { useSearchParams } from "react-router-dom";
 import { menuClose } from "../utils/Slices/sidebarSlice";
 import { useEffect } from "react";
-import Comment from "./Comment";
+import CommentContainer from "./CommentContainer";
 
 const WatchVideo = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -27,7 +27,7 @@ const WatchVideo = () => {
           allowFullScreen
         ></iframe>
       </div>
-      <Comment/>
+      <CommentContainer/>
     </div>
   );
 };

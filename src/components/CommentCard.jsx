@@ -1,9 +1,9 @@
 import userLogo from "../assets/img/userIcon.png"
-const CommentCard=({commentInfo})=>{
+const CommentCard=({commentInfo,css})=>{
     const {name,text} = commentInfo;
     
     return(
-        <div className="flex my-4">
+        <div className={`flex my-4 ${css}`}>
             <div className=" p-2 ">
             <img className="w-10" src={userLogo} alt="user-logo"/>
             </div>
