@@ -3,4 +3,6 @@ const YOUTUBE_VIDEOS_URL =
   import.meta.env.VITE_YOUTUBE_API_KEY;
 
 const YOUTUBE_SEARCH_URL = "http://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=";
-export { YOUTUBE_VIDEOS_URL,YOUTUBE_SEARCH_URL };
+
+const OFFSET_LIVE_CHAT = 10;
+export { YOUTUBE_VIDEOS_URL,YOUTUBE_SEARCH_URL,OFFSET_LIVE_CHAT };
