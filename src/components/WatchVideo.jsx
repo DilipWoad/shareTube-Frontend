@@ -3,6 +3,8 @@ import { useSearchParams } from "react-router-dom";
 import { menuClose } from "../utils/Slices/sidebarSlice";
 import { useEffect } from "react";
 import CommentContainer from "./CommentContainer";
+import ScrollToTop from "./ScrollToTop";
+import LiveChat from "./LiveChat";
 
 const WatchVideo = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -13,12 +15,14 @@ const WatchVideo = () => {
     dispatch(menuClose());
   }, []);
   return (
-    <div>
-      <div className="mx-7 mt-24">
+    <div className=" w-full">
+      <ScrollToTop/>
+      <div className="flex mt-24">
+      <div className="ml-8 mr-6 ">
         <iframe
           className="rounded-xl"
-          width="853"
-          height="460"
+          width="855"
+          height="465"
           src={`https://www.youtube.com/embed/${videoParams}/?autoplay=1`}
           title="YouTube video player"
           frameBorder="0"
@@ -26,7 +30,13 @@ const WatchVideo = () => {
           referrerPolicy="strict-origin-when-cross-origin"
           allowFullScreen
         ></iframe>
+        
       </div>
+      <div className="w-[30%]">
+        <LiveChat/>
+        </div> 
+      </div>
+      
       <CommentContainer/>
     </div>
   );

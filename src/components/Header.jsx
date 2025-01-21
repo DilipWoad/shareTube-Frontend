@@ -63,7 +63,7 @@ const Header = () => {
   }, [searchText]);
 
   return (
-    <div className="bg-white fixed w-full grid grid-flow-col p-5 mx-2 shadow-lg rounded-lg  items-center">
+    <div className="bg-white fixed w-full grid grid-flow-col p-5 mx-2 shadow-lg rounded-lg rounded-b-none  items-center">
       <div className="flex col-span-1 items-center space-x-2">
         <img
           onClick={handleMenuClick}

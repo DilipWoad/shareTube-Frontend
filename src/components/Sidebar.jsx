@@ -1,11 +1,13 @@
 import { useSelector } from "react-redux"
-import { Link } from "react-router-dom"
+import { Link, useLocation } from "react-router-dom"
+
 
 const Sidebar=()=>{
     const hideSidebar = useSelector((store)=>store?.sidebar?.sidebarStatus)
+    const {pathname} = useLocation();
     return(
         hideSidebar &&
-        <div className="mt-24 pl-2 rounded-md shadow-2xl min-w-48 ml-2 ">
+        <div className={`mt-20 pl-2 rounded-md rounded-t-none shadow-2xl min-w-48 ${pathname!=='/' && 'ml-2 absolute bg-white opacity-95'}`}>
             <ul className="py-2">
                 <li><Link to={'/'}>Home</Link></li>
                 <li> Shorts </li>
