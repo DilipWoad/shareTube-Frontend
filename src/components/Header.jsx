@@ -76,9 +76,9 @@ const Header = () => {
         </a>
       </div>
       <div className=" col-span-10 px-10 flex  justify-center items-center ">
-        <div className=" ">
+        <div className="">
             <input
-            className=" border border-gray-500 py-2 px-4 rounded-l-full w-[450px]"
+            className=" border border-gray-500 py-2 px-4 rounded-l-full w-[500px]"
             type="input"
             placeholder="Search"
             ref={youtubeSearchRef}

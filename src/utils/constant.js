@@ -5,4 +5,7 @@ const YOUTUBE_VIDEOS_URL =
 const YOUTUBE_SEARCH_URL = "http://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=";
 
 const OFFSET_LIVE_CHAT = 10;
-export { YOUTUBE_VIDEOS_URL,YOUTUBE_SEARCH_URL,OFFSET_LIVE_CHAT };
+
+const LOWER_ICON = "https://static-00.iconduck.com/assets.00/chevron-down-icon-512x311-8kvkjj1g.png"
+const UPPER_ICON = "https://static-00.iconduck.com/assets.00/chevron-up-icon-512x311-nptyyto0.png"
+export { YOUTUBE_VIDEOS_URL,YOUTUBE_SEARCH_URL,OFFSET_LIVE_CHAT,LOWER_ICON,UPPER_ICON };
