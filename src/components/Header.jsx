@@ -75,10 +75,10 @@ const Header = () => {
           <img className="h-8" src={stlogo} alt="yt-logo" />
         </a>
       </div>
-      <div className=" col-span-10 px-10 flex  justify-center items-center ">
+      <div className=" col-span-10 px-10 flex flex-col items-center ">
         <div className="">
             <input
-            className=" border border-gray-500 py-2 px-4 rounded-l-full w-[500px]"
+            className="hover:shadow-xl border border-gray-500 py-2 px-4 rounded-l-full w-[500px]"
             type="input"
             placeholder="Search"
             ref={youtubeSearchRef}
@@ -95,7 +95,7 @@ const Header = () => {
             </button>
         </div>
         {
-            showSuggestion && searchText && <div className="bg-white fixed w-4/12 rounded-lg mt-[1px] shadow-2xl">
+            showSuggestion && searchText && <div className="bg-white mt-12 mr-16 w-[500px] absolute rounded-lg shadow-2xl">
             <ul className="p-6 ">
                 {searchResults.map((result)=>(
                     <li key={result} className="my-2 hover:bg-gray-300 p-1"><span className="mx-2">⌕</span> {result}</li>
